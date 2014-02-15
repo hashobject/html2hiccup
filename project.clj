@@ -16,8 +16,9 @@
                  [hiccup "1.0.5"]
                  [hickory "0.5.2"]
                  [org.clojure/clojurescript "0.0-2156"]
-                 [om "0.4.0"]
+                 [om "0.4.1"]
                  [com.facebook/react "0.8.0.1"]
+                 [sablono "0.2.6"]
                  [org.clojure/tools.reader "0.8.3"]]
 
 
