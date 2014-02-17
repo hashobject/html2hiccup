@@ -7,3 +7,5 @@ pom.xml
 target/
 resources/public/out/
 *DS_Store*
+grunt-aws.json
+node_modules/

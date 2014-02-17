@@ -1,6 +1,6 @@
 # html2hiccup
 
-
+Html/Hiccup online converter.
 
 ## License
 

@@ -1,37 +1,34 @@
 (defproject html2hiccup "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+  :description "Html/Hiccup online converter"
   :url "http://html2hiccup.hashobject.com"
   :signing {:gpg-key "Hashobject Ltd <team@hashobject.com>"}
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :min-lein-version "2.0.0"
-  :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/tools.logging "0.2.6"]
-                 [ring/ring-core "1.2.1"]
-                 [ring-server "0.3.1"]
-                 [ring/ring-jetty-adapter "1.2.1"]
-                 [compojure "1.1.6"]
-                 [environ "0.4.0"]
-                 [hiccup "1.0.5"]
                  [hickory "0.5.2"]
                  [org.clojure/clojurescript "0.0-2156"]
                  [org.clojure/tools.reader "0.8.3"]]
 
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/cljs"]
   :resource-paths ["resources"]
 
-  :plugins [[lein-ring "0.8.10"]
-            [lein-cljsbuild "1.0.2"]]
-  :ring {:handler html2hiccup.core/app}
-
+  :plugins [[lein-cljsbuild "1.0.2"]]
 
   :cljsbuild {
-    :builds [{:id "app"
-              :source-paths ["src/clj" "src/cljs"]
+    :builds [{:id "dev"
+              :source-paths ["src/cljs"]
               :compiler {
                 :output-to "resources/public/app.js"
                 :output-dir "resources/public/out"
                 :optimizations :none
-                :source-map true}}]})
+                :source-map true}}
+            {:id "prod"
+              :source-paths ["src/cljs"]
+              :compiler {
+                :output-to "resources/public/app.js"
+                :optimizations :advanced
+                :elide-asserts true
+                :pretty-print false
+                :output-wrapper false
+                :source-map false}}]})

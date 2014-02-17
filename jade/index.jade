@@ -1,0 +1,17 @@
+html
+  head
+    link(rel='stylesheet', href='app.css')
+    script(src='codemirror.js')
+    script(src='clojure.js')
+    script(src='htmlembedded.js')
+    script(src='out/goog/base.js', type='text/javascript')
+    script(src='app.js', type='text/javascript')
+  body
+    .row
+      .column.large-6
+        textarea#html-code.
+          <p>Put your html here</p>
+      .column.large-6
+        textarea#hiccup-code [:p 'Get your Hiccup code here']
+    script.
+      goog.require("html2hiccup.core");
