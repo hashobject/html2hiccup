@@ -60,8 +60,8 @@ module.exports = function(grunt) {
 
     cssmin: {
       minify: {
-        src: 'dist/css/app.css',
-        dest: 'dist/css/app.min.css'
+        src: 'resources/public/app.css',
+        dest: 'resources/public/app.css'
       }
     },
 
@@ -79,24 +79,24 @@ module.exports = function(grunt) {
           dest: 'html2hiccup/index.html'
         },
         {
-          src: 'dist/robots.txt',
-          dest: 'flatland/robots.txt'
+          src: 'resources/public/index.html',
+          dest: 'html2hiccup/app.css'
         },
         {
-          src: 'dist/css/*.css',
-          dest: 'flatland/css'
+          src: 'resources/public/app.js',
+          dest: 'html2hiccup/app.js'
         },
         {
-          src: 'dist/css/images/*.png',
-          dest: 'flatland/css/images'
+          src: 'resources/public/codemirror.js',
+          dest: 'html2hiccup/codemirror.js'
         },
         {
-          src: 'dist/css/images/*.jpg',
-          dest: 'flatland/css/images'
+          src: 'resources/public/clojure.js',
+          dest: 'html2hiccup/clojure.js'
         },
         {
-          src: 'dist/js/*.js',
-          dest: 'flatland/js/'
+          src: 'resources/public/htmlembedded.js',
+          dest: 'html2hiccup/htmlembedded.js'
         }
       ]
     },
@@ -116,5 +116,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-s3');
 
   grunt.registerTask('build', ['jade:compile', 'stylus:compile']);
+  grunt.registerTask('deploy', ['jade:compile', 'stylus:compile', 'cssmin:minify', 's3:upload']);
 
 };

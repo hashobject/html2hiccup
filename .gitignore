@@ -9,3 +9,4 @@ resources/public/out/
 *DS_Store*
 grunt-aws.json
 node_modules/
+npm-debug.log
