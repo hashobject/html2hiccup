@@ -9,6 +9,7 @@
 
 (defroutes routes
   (GET "/" [] (index))
+  (GET "/html-hiccup" [] "Hey man")
   (route/files "/" {:root "resources/public"}))
 
 (def app

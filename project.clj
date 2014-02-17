@@ -16,9 +16,11 @@
                  [hiccup "1.0.5"]
                  [hickory "0.5.2"]
                  [org.clojure/clojurescript "0.0-2156"]
+                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
                  [om "0.4.1"]
                  [com.facebook/react "0.8.0.1"]
                  [sablono "0.2.6"]
+                 [cljs-http "0.1.7"]
                  [org.clojure/tools.reader "0.8.3"]]
 
 
