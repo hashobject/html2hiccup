@@ -34,9 +34,9 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      dist: {
+      vendor: {
         files: {
-          'dist/js/vendor.js': ['js/jquery.js', 'js/fastclick.js', 'js/foundation.min.js', 'js/waypoints.min.js'],
+          'resources/public/vendor.js': ['resources/public/codemirror.js', 'resources/public/clojure.js', 'resources/public/htmlembedded.js'],
         }
       }
     },
@@ -76,27 +76,19 @@ module.exports = function(grunt) {
       upload: [
         {
           src: 'resources/public/index.html',
-          dest: 'html2hiccup/index.html'
+          dest: 'index.html'
         },
         {
-          src: 'resources/public/index.html',
-          dest: 'html2hiccup/app.css'
+          src: 'resources/public/app.css',
+          dest: 'app.css'
         },
         {
           src: 'resources/public/app.js',
-          dest: 'html2hiccup/app.js'
+          dest: 'app.js'
         },
         {
-          src: 'resources/public/codemirror.js',
-          dest: 'html2hiccup/codemirror.js'
-        },
-        {
-          src: 'resources/public/clojure.js',
-          dest: 'html2hiccup/clojure.js'
-        },
-        {
-          src: 'resources/public/htmlembedded.js',
-          dest: 'html2hiccup/htmlembedded.js'
+          src: 'resources/public/vendor.js',
+          dest: 'vendor.js'
         }
       ]
     },
@@ -115,7 +107,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-s3');
 
-  grunt.registerTask('build', ['jade:compile', 'stylus:compile']);
-  grunt.registerTask('deploy', ['jade:compile', 'stylus:compile', 'cssmin:minify', 's3:upload']);
+  grunt.registerTask('build', ['jade:compile', 'stylus:compile', 'concat:vendor']);
+  grunt.registerTask('deploy', ['jade:compile', 'stylus:compile', 'cssmin:minify', 'concat:vendor', 's3:upload']);
 
 };

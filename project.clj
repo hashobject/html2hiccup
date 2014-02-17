@@ -30,5 +30,4 @@
                 :optimizations :advanced
                 :elide-asserts true
                 :pretty-print false
-                :output-wrapper false
-                :source-map false}}]})
+                :output-wrapper false}}]})
