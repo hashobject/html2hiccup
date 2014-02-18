@@ -27,7 +27,8 @@
               :source-paths ["src/cljs"]
               :compiler {
                 :output-to "resources/public/app.js"
-                :optimizations :advanced
-                :elide-asserts true
-                :pretty-print false
-                :output-wrapper false}}]})
+                :optimizations :whitespace;:advanced
+                ;:elide-asserts false
+                :pretty-print true
+                :output-wrapper false
+                         }}]})
